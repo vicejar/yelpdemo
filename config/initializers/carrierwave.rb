@@ -5,6 +5,6 @@ CarrierWave.configure do |config|
     :aws_secret_access_key  => ENV["aws_secret_access_key"],
     
   }
-  config.fog_directory  = 'yelpdemojq'                     # required
+  config.fog_directory  = 'yelpdemojq2'                     # required
  
 end
