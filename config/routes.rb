@@ -1,7 +1,10 @@
 Yelpdemo::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :restaurants do
+    collection do
+      get 'search'
+    end
       resources :reviews, except: [:show, :index]
   end
 
@@ -12,6 +15,9 @@ Yelpdemo::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'restaurants#index'
+
+
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -61,4 +67,5 @@ Yelpdemo::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end
